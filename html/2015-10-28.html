@@ -1,0 +1,386 @@
+<!doctype html>
+<html class="no-js " lang="en">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=IE9" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"/>
+  <meta charset="utf-8">
+
+      <link rel="preload" href="//cdn03.gitter.im/_s/b230113/fonts/sourcesans/SourceSansPro-Regular.otf.woff" as="font" type="font/woff">
+    <link rel="preload" href="//cdn01.gitter.im/_s/b230113/fonts/sourcesans/SourceSansPro-It.otf.woff" as="font" type="font/woff">
+    <link rel="preload" href="//cdn01.gitter.im/_s/b230113/fonts/sourcesans/SourceSansPro-Bold.otf.woff" as="font" type="font/woff">
+    <link rel="preload" href="//cdn02.gitter.im/_s/b230113/fonts/sourcesans/SourceSansPro-Semibold.otf.woff" as="font" type="font/woff">
+    <link rel="preload" href="//cdn03.gitter.im/_s/b230113/fonts/sourcesans/SourceSansPro-BoldIt.otf.woff" as="font" type="font/woff">
+    <link rel="preload" href="//cdn02.gitter.im/_s/b230113/fonts/sourcesans/SourceSansPro-Light.otf.woff" as="font" type="font/woff">
+    <link rel="preload" href="//cdn03.gitter.im/_s/b230113/fonts/sourcesans/SourceSansPro-ExtraLight.otf.woff" as="font" type="font/woff">
+
+  <style>
+    @font-face {
+      font-family: 'SourceSansLocal';
+      font-style: normal;
+      font-weight: bold;
+      src: local("SourceSansPro-Bold");
+    }
+    @font-face {
+      font-family: 'SourceSansLocal';
+      font-style: italic;
+      font-weight: bold;
+      src: local("SourceSansPro-BoldIt");
+    }
+    @font-face {
+      font-family: 'SourceSansLocal';
+      font-style: normal;
+      font-weight: 200;
+      src: local("SourceSansPro-ExtraLight");
+    }
+    @font-face {
+      font-family: 'SourceSansLocal';
+      font-style: italic;
+      font-weight: normal;
+      src: local("SourceSansPro-It");
+    }
+    @font-face {
+      font-family: 'SourceSansLocal';
+      font-style: normal;
+      font-weight: 300;
+      src: local("SourceSansPro-Light");
+    }
+    @font-face {
+      font-family: 'SourceSansLocal';
+      font-style: normal;
+      font-weight: normal;
+      src: local("SourceSansPro-Regular");
+    }
+    @font-face {
+      font-family: 'SourceSansLocal';
+      font-style: normal;
+      font-weight: 600;
+      src: local("SourceSansPro-Semibold");
+    }
+    @font-face {
+      font-family: "source-sans-pro";
+      src: url("//cdn03.gitter.im/_s/b230113/fonts/sourcesans/SourceSansPro-Regular.otf.woff") format('woff');
+      font-weight: normal;
+      font-style: normal
+    }
+    @font-face {
+      font-family: "source-sans-pro";
+      src: url("//cdn01.gitter.im/_s/b230113/fonts/sourcesans/SourceSansPro-It.otf.woff") format('woff');
+      font-weight: normal;
+      font-style: italic
+    }
+    @font-face {
+      font-family: "source-sans-pro";
+      src: url("//cdn01.gitter.im/_s/b230113/fonts/sourcesans/SourceSansPro-Bold.otf.woff") format('woff');
+      font-weight: bold;
+      font-style: normal
+    }
+    @font-face {
+      font-family: "source-sans-pro";
+      src: url("//cdn02.gitter.im/_s/b230113/fonts/sourcesans/SourceSansPro-Semibold.otf.woff") format('woff');
+      font-weight: 600;
+      font-style: normal
+    }
+    @font-face {
+      font-family: "source-sans-pro";
+      src: url("//cdn03.gitter.im/_s/b230113/fonts/sourcesans/SourceSansPro-BoldIt.otf.woff") format('woff');
+      font-weight: bold;
+      font-style: italic
+    }
+    @font-face {
+      font-family: "source-sans-pro";
+      src: url("//cdn02.gitter.im/_s/b230113/fonts/sourcesans/SourceSansPro-Light.otf.woff") format('woff');
+      font-weight: 300;
+      font-style: normal
+    }
+    @font-face {
+      font-family: "source-sans-pro";
+      src: url("//cdn03.gitter.im/_s/b230113/fonts/sourcesans/SourceSansPro-ExtraLight.otf.woff") format('woff');
+      font-weight: 200;
+      font-style: normal
+    }
+  </style>
+
+  <title>symphonycms/symphony-2 - Gitter</title>
+
+  <style>
+
+  @-webkit-keyframes pulsey {
+      0% { opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { opacity: 0.6; }
+  }
+
+  html.loading .trpContentPanel { background: url("//cdn01.gitter.im/_s/b230113/images/logo-mark-grey-64.png") center no-repeat; height: 90%; -webkit-animation: pulsey 2s ease-out; -webkit-animation-iteration-count: infinite;  }
+  html.loading .trpContentPanel > * { visibility: hidden; }
+  </style>
+  <base target="_parent">
+  <link rel="stylesheet" href='//cdn01.gitter.im/_s/b230113/sprites/services.css'>
+  <link rel="stylesheet" href='//cdn02.gitter.im/_s/b230113/styles/router-archive-chat.css'>
+  <link id="favicon" rel="shortcut icon" href="//cdn02.gitter.im/_s/b230113/images/favicon.ico">
+</head>
+<body class="logged-out">
+  <div class="chat-and-toolbar-wrapper archive">
+    <div class="right-toolbar-region">
+      <div class="right-toolbar" style="overflow: auto">
+        <div class="gtrArchiveToolbarWrapper">
+            <div class="gtrArchiveInfoContainer">
+                <div class="gtrArchiveLogo">
+                  <div class="logo-container"></div>
+                </div>
+                <div class="gtrArchiveInfo">
+                  <p>These are chat archives for <strong>symphonycms/symphony-2</strong></p>
+                </div>
+            </div>
+
+          <div id="archive-navigation" class="gtrArchiveNavigationWrapper"><div class="gtrArchiveNavigationInner">
+  <div class="gtrArchiveDate">
+    <a href="/symphonycms/symphony-2/archives/2015/10/29"><i class="gtrArchiveNext octicon octicon-chevron-right"></i></a>
+    <a href="/symphonycms/symphony-2/archives/2015/10/27"><i class="gtrArchivePrev octicon octicon-chevron-left"></i></a>
+    <div class="gtrArchiveToday">
+      <span class="gtrArchiveDay">28<sup>th</sup></span><br>
+      <span class="gtrArchiveMonth">Oct 2015</span>
+    </div>
+  </div>
+
+  <div class="archive-toggle-navigation-action-holder">
+    <button class="button-jaffa--small js-toggle-archive-navigation">Toggle Heatmap</button>
+  </div>
+  <div id="archive-navigation" class="gtrArchiveCalendar js-archive-navigation-wrapper">
+  </div>
+</div>
+</div>
+            <div class="archive-right-toolbar-button-wrapper">
+              <a href="/login?action=login&amp;button=archive-login" class="archive-right-toolbar-button button-caribbean">Sign in to start talking</a>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="chat-app">
+      <div class="chat-header" id="header-wrapper">
+        <div id="header" class="chat-header-inner">
+          <div class="chat-header__main-grouping chat-header__avatar-grouping">
+  <form
+    class="chat-header__avatar  js-chat-header-group-avatar-upload-form"
+    action=""
+    enctype="multipart/form-data"
+    method="POST">
+    <input type="hidden" class="js-chat-header-group-avatar-upload-signature" name="signature" value="">
+    <input type="hidden" class="js-chat-header-group-avatar-upload-params" name="params" value="">
+    <input
+      id="chat-header-group-avatar-upload-input"
+      class="chat-header__group-avatar-upload-input js-chat-header-group-avatar-upload-input"
+      name="file"
+      type="file"
+      accept="image/*"
+      disabled />
+    <label
+      class="chat-header__group-avatar-upload-label js-chat-header-group-avatar-upload-label"
+      for="chat-header-group-avatar-upload-input"
+      >
+      <img class="js-chat-header-avatar-image"  height='48' width='48' src='https://avatars-02.gitter.im/group/iv/3/57542c45c43b8c601977197e?s=48' srcset='https://avatars-02.gitter.im/group/iv/3/57542c45c43b8c601977197e?s=96 2x' >
+      <div class="chat-header__group-avatar-upload-progress hidden js-chat-header-group-avatar-upload-progress"></div>
+    </label>
+  </form>
+</div>
+
+<div class="chat-header__main-grouping chat-header__info-grouping">
+  <div class="chat-header__heading-sub-group">
+    <h1 class="js-chat-name chat-header__heading">
+      <a href="/symphonycms/symphony-2" class="chat-header__title">symphonycms/symphony-2</a>
+    </h1>
+  </div>
+  <div class="chat-header__topic-sub-group js-room-topic-edit-activator" tabindex="0">
+    <div class="chat-header__topic-wrapper js-room-topic-wrapper  "><p class="js-room-topic chat-header__topic  ">This is the official Symphony 2 repository.</p></div>
+  </div>
+</div>
+
+
+<div class="chat-header__main-grouping chat-header__action-grouping">
+    <a href="/orgs/symphonycms/rooms" class="chat-header__org-page org-page-link js-chat-header-org-page-action" title="More symphonycms rooms">
+      <i class="chat-header__action-icon icon-globe"></i>
+    </a>
+
+</div>
+
+        </div>
+      </div>
+      <div class="trpContentPanel archive" id="content-wrapper">
+  <div class="trpChatPanel">
+    <div class="trpChatContainer  primary-scroll  chat-container" id="content-frame">
+
+      <div id="chat-container">
+
+          <div class="chat-item model-id-563130d1fee0347118af0aa4 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-530622cf5e986b0712ef8873 avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/131859?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/131859?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Bernardo Dias</div>
+      <div class='chat-item__username js-chat-item-from'>@bernardodiasc</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=563130d1fee0347118af0aa4' title="">Oct 28 2015 20:32</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      hey guys, it&#39;s nice to find a place where I can talk with symphonists all together. let me give you some feedback about the doc site I&#39;ve been working on few months ago with help of other devs. we started working in the doc site using the factory template and jekyll. honestly, we feel better the tool after some time using it and using jekyll to make the symphony doc site doesnt worked well for me. i ended sending PR to jekyll and bothered with ruby things. not much a programmer here, I can handle js and toher FE stuff, but not php or ruby. what I mean is that at some point i was spending energy in another platform and tech that was not symphony related. so I give up continuing the jekyll site. sorry to delay so much in this feedback. i hope you understand. 
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-563132a96afab45a2ce6342d burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-530622cf5e986b0712ef8873 avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/131859?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/131859?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Bernardo Dias</div>
+      <div class='chat-item__username js-chat-item-from'>@bernardodiasc</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=563132a96afab45a2ce6342d' title="">Oct 28 2015 20:40</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      what I&#39;ve learned with the experience is that we need to write new stuff or recicle the old writtings. I wrote a plain tutorial showing a bit of my workflow, that is one way to use symphony as a development tool. i believe there is several possible workflows and a lot of what I know I read from your articles in personal blogs and the official site articles of course, but also a lot by experience. And I also did a prototype of symphony + react letting the page rendering to be done in client-side. this to offer alternatives to documentation. Probably the most effective way to show how to work with symphony is making 5~10 minutes videos in series, each video with focused in a subset of topics.
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-5631331ce16589782d931fd8 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      well thats it. unfortunately I&#39;m currently only using symphony for playing with ideas in ptototypes, not using it on daily basis (working with drupal, thats is over complicated and the phptemplate is so awful, not my choice).
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-56313330738e06e175f46e16 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      thanks everyone. :)
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-563133636afab45a2ce63470 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5515657515522ed4b3ddeb4e avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Jonathan Mifsud</div>
+      <div class='chat-item__username js-chat-item-from'>@jonmifsud</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=563133636afab45a2ce63470' title="">Oct 28 2015 20:43</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      <span data-link-type="mention" data-screen-name="bernardodiasc" class="mention">@bernardodiasc</span> agree on the videos planned to do some but scrambling to get time on it. Sorry it didn&#39;t quite work out
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-5631351db1bb53dd7572501b burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-530622cf5e986b0712ef8873 avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/131859?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/131859?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Bernardo Dias</div>
+      <div class='chat-item__username js-chat-item-from'>@bernardodiasc</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=5631351db1bb53dd7572501b' title="">Oct 28 2015 20:50</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      this was the latest video i recorded, <a href="https://www.youtube.com/watch?v=vf5b-Yfqj6E" rel="nofollow" target="_blank" class="link">https://www.youtube.com/watch?v=vf5b-Yfqj6E</a>, 1h duration, no audio, tooooo boring. the funny thing is that in this 1h video I manage to accomplish what 3 devs do in one week with drupal. so 1h is too much for a video but is also nothing for what i accomplish in the video. still, very hard sell in this format.
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-56315170e16589782d9322cd burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5517715f15522ed4b3ddfd67 avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/4517581?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/4517581?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>munki-boy</div>
+      <div class='chat-item__username js-chat-item-from'>@munki-boy</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=56315170e16589782d9322cd' title="">Oct 28 2015 22:51</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      <span data-link-type="mention" data-screen-name="bernardodiasc" class="mention">@bernardodiasc</span> well done, better to watch for 1 hour compared to searching the forum/docs/blogs when you aren&#39;t sure what to search for. :clap: 
+    </div>
+  </div>
+</div>
+</div>
+      </div>
+
+      <div id='initial' style="height:0;width:0;overflow:hidden"><a name="initial"/>_</a></div>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+    <script type="text/javascript">window.gitterClientEnv = {"lang":"en","domain":"gitter.im","baseServer":"gitter.im","basePath":"https://gitter.im","apiBasePath":"https://gitter.im/api","homeUrl":"/","badgeBaseUrl":"https://badges.gitter.im","mixpanelToken":"d43f5f0ef2f5e96d90325f539fc61337","googleTrackingId":"UA-45918290-1","googleTrackingDomain":"gitter.im","goSquaredTrackingId":"GSN-457403-A","env":"prod","cdns":["cdn01.gitter.im","cdn02.gitter.im","cdn03.gitter.im"],"version":"b23011","assetTag":"b230113","logging":false,"ravenUrl":"https://0f50f03f994740328ab6a67c82395948@app.getsentry.com/19257","websockets":{"fayeUrl":"https://ws.gitter.im/bayeux","options":{"timeout":120,"retry":2}},"avatarsUrl":"https://avatars.gitter.im","avatarCdns":["https://avatars-01.gitter.im","https://avatars-02.gitter.im","https://avatars-03.gitter.im","https://avatars-04.gitter.im","https://avatars-05.gitter.im"],"embed":{"basepath":"https://embed.gitter.im","cacheBuster":"1"},"billingUrl":"http://billing.gitter.im","maxFreeOrgRoomMembers":25,"vapidAppServerKey":"BMhrlZd_I5OFJSJQTbg2mZ5PTHarzenwsKfsRd8C0-HRBygpDj9O3M4VTJIQfB9VPDjAoO_w2eg7Sj_cMXzuLwI"};window.troupeContext = {"accessToken":"$REbDmX7CpBG7zK8NVE5ShPOWej5Qv17afUIoKdW7+Ak=","isNativeDesktopApp":false,"locale":{"%d unread message":{"one":"%d unread message","other":"%d unread messages"},"Unread messages in %%s, %%s and one other":{"one":"Unread messages in %%s, %%s and one other","other":"Unread messages in %%s, %%s and %d others"},"Unread messages in %s":"Unread messages in %s","Unread messages in %s and %s":"Unread messages in %s and %s","Unread messages from %s":"Unread messages from %s","Unread messages from %s and %s":"Unread messages from %s and %s","Unread messages from %%s, %%s and one other":{"one":"Unread messages from %%s, %%s and one other","other":"Unread messages from %%s, %%s and %d others"}},"roomMember":false,"user":null,"troupe":{"id":"5514b98415522ed4b3dde61d","name":"symphonycms/symphony-2","topic":"This is the official Symphony 2 repository.","avatarUrl":"https://avatars-02.gitter.im/group/iv/3/57542c45c43b8c601977197e","uri":"symphonycms/symphony-2","userCount":122,"url":"/symphonycms/symphony-2","githubType":"REPO","associatedRepo":"symphonycms/symphony-2","security":"PUBLIC","groupId":"57542c45c43b8c601977197e","group":{"id":"57542c45c43b8c601977197e","name":"symphonycms","uri":"symphonycms","homeUri":"symphonycms/home","backedBy":{"type":"GH_ORG","linkPath":"symphonycms"},"avatarUrl":"https://avatars-02.gitter.im/group/iv/3/57542c45c43b8c601977197e"},"backend":{"type":"GH_REPO","linkPath":"symphonycms/symphony-2"},"public":true,"v":35},"roomHasWelcomeMessage":false,"archive":{"archiveDate":"2015-10-28T00:00:00.000Z","nextDate":"2015-10-29T00:00:00.000Z","previousDate":"2015-10-27T00:00:00.000Z"}};</script>
+
+    <script type='text/javascript'>window.webpackPublicPath = '//cdn02.gitter.im/_s/b230113/js/';</script><script type='text/javascript' src='//cdn02.gitter.im/_s/b230113/js/vendor.js'></script><script type='text/javascript' src='//cdn02.gitter.im/_s/b230113/js/router-archive-chat.js'></script>
+</body>
+</html>

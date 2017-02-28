@@ -1,0 +1,1846 @@
+<!doctype html>
+<html class="no-js " lang="en">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=IE9" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"/>
+  <meta charset="utf-8">
+
+      <link rel="preload" href="//cdn03.gitter.im/_s/b230113/fonts/sourcesans/SourceSansPro-Regular.otf.woff" as="font" type="font/woff">
+    <link rel="preload" href="//cdn01.gitter.im/_s/b230113/fonts/sourcesans/SourceSansPro-It.otf.woff" as="font" type="font/woff">
+    <link rel="preload" href="//cdn01.gitter.im/_s/b230113/fonts/sourcesans/SourceSansPro-Bold.otf.woff" as="font" type="font/woff">
+    <link rel="preload" href="//cdn02.gitter.im/_s/b230113/fonts/sourcesans/SourceSansPro-Semibold.otf.woff" as="font" type="font/woff">
+    <link rel="preload" href="//cdn03.gitter.im/_s/b230113/fonts/sourcesans/SourceSansPro-BoldIt.otf.woff" as="font" type="font/woff">
+    <link rel="preload" href="//cdn02.gitter.im/_s/b230113/fonts/sourcesans/SourceSansPro-Light.otf.woff" as="font" type="font/woff">
+    <link rel="preload" href="//cdn03.gitter.im/_s/b230113/fonts/sourcesans/SourceSansPro-ExtraLight.otf.woff" as="font" type="font/woff">
+
+  <style>
+    @font-face {
+      font-family: 'SourceSansLocal';
+      font-style: normal;
+      font-weight: bold;
+      src: local("SourceSansPro-Bold");
+    }
+    @font-face {
+      font-family: 'SourceSansLocal';
+      font-style: italic;
+      font-weight: bold;
+      src: local("SourceSansPro-BoldIt");
+    }
+    @font-face {
+      font-family: 'SourceSansLocal';
+      font-style: normal;
+      font-weight: 200;
+      src: local("SourceSansPro-ExtraLight");
+    }
+    @font-face {
+      font-family: 'SourceSansLocal';
+      font-style: italic;
+      font-weight: normal;
+      src: local("SourceSansPro-It");
+    }
+    @font-face {
+      font-family: 'SourceSansLocal';
+      font-style: normal;
+      font-weight: 300;
+      src: local("SourceSansPro-Light");
+    }
+    @font-face {
+      font-family: 'SourceSansLocal';
+      font-style: normal;
+      font-weight: normal;
+      src: local("SourceSansPro-Regular");
+    }
+    @font-face {
+      font-family: 'SourceSansLocal';
+      font-style: normal;
+      font-weight: 600;
+      src: local("SourceSansPro-Semibold");
+    }
+    @font-face {
+      font-family: "source-sans-pro";
+      src: url("//cdn03.gitter.im/_s/b230113/fonts/sourcesans/SourceSansPro-Regular.otf.woff") format('woff');
+      font-weight: normal;
+      font-style: normal
+    }
+    @font-face {
+      font-family: "source-sans-pro";
+      src: url("//cdn01.gitter.im/_s/b230113/fonts/sourcesans/SourceSansPro-It.otf.woff") format('woff');
+      font-weight: normal;
+      font-style: italic
+    }
+    @font-face {
+      font-family: "source-sans-pro";
+      src: url("//cdn01.gitter.im/_s/b230113/fonts/sourcesans/SourceSansPro-Bold.otf.woff") format('woff');
+      font-weight: bold;
+      font-style: normal
+    }
+    @font-face {
+      font-family: "source-sans-pro";
+      src: url("//cdn02.gitter.im/_s/b230113/fonts/sourcesans/SourceSansPro-Semibold.otf.woff") format('woff');
+      font-weight: 600;
+      font-style: normal
+    }
+    @font-face {
+      font-family: "source-sans-pro";
+      src: url("//cdn03.gitter.im/_s/b230113/fonts/sourcesans/SourceSansPro-BoldIt.otf.woff") format('woff');
+      font-weight: bold;
+      font-style: italic
+    }
+    @font-face {
+      font-family: "source-sans-pro";
+      src: url("//cdn02.gitter.im/_s/b230113/fonts/sourcesans/SourceSansPro-Light.otf.woff") format('woff');
+      font-weight: 300;
+      font-style: normal
+    }
+    @font-face {
+      font-family: "source-sans-pro";
+      src: url("//cdn03.gitter.im/_s/b230113/fonts/sourcesans/SourceSansPro-ExtraLight.otf.woff") format('woff');
+      font-weight: 200;
+      font-style: normal
+    }
+  </style>
+
+  <title>symphonycms/symphony-2 - Gitter</title>
+
+  <style>
+
+  @-webkit-keyframes pulsey {
+      0% { opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { opacity: 0.6; }
+  }
+
+  html.loading .trpContentPanel { background: url("//cdn01.gitter.im/_s/b230113/images/logo-mark-grey-64.png") center no-repeat; height: 90%; -webkit-animation: pulsey 2s ease-out; -webkit-animation-iteration-count: infinite;  }
+  html.loading .trpContentPanel > * { visibility: hidden; }
+  </style>
+  <base target="_parent">
+  <link rel="stylesheet" href='//cdn01.gitter.im/_s/b230113/sprites/services.css'>
+  <link rel="stylesheet" href='//cdn02.gitter.im/_s/b230113/styles/router-archive-chat.css'>
+  <link id="favicon" rel="shortcut icon" href="//cdn02.gitter.im/_s/b230113/images/favicon.ico">
+</head>
+<body class="logged-out">
+  <div class="chat-and-toolbar-wrapper archive">
+    <div class="right-toolbar-region">
+      <div class="right-toolbar" style="overflow: auto">
+        <div class="gtrArchiveToolbarWrapper">
+            <div class="gtrArchiveInfoContainer">
+                <div class="gtrArchiveLogo">
+                  <div class="logo-container"></div>
+                </div>
+                <div class="gtrArchiveInfo">
+                  <p>These are chat archives for <strong>symphonycms/symphony-2</strong></p>
+                </div>
+            </div>
+
+          <div id="archive-navigation" class="gtrArchiveNavigationWrapper"><div class="gtrArchiveNavigationInner">
+  <div class="gtrArchiveDate">
+    <a href="/symphonycms/symphony-2/archives/2015/11/20"><i class="gtrArchiveNext octicon octicon-chevron-right"></i></a>
+    <a href="/symphonycms/symphony-2/archives/2015/11/18"><i class="gtrArchivePrev octicon octicon-chevron-left"></i></a>
+    <div class="gtrArchiveToday">
+      <span class="gtrArchiveDay">19<sup>th</sup></span><br>
+      <span class="gtrArchiveMonth">Nov 2015</span>
+    </div>
+  </div>
+
+  <div class="archive-toggle-navigation-action-holder">
+    <button class="button-jaffa--small js-toggle-archive-navigation">Toggle Heatmap</button>
+  </div>
+  <div id="archive-navigation" class="gtrArchiveCalendar js-archive-navigation-wrapper">
+  </div>
+</div>
+</div>
+            <div class="archive-right-toolbar-button-wrapper">
+              <a href="/login?action=login&amp;button=archive-login" class="archive-right-toolbar-button button-caribbean">Sign in to start talking</a>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="chat-app">
+      <div class="chat-header" id="header-wrapper">
+        <div id="header" class="chat-header-inner">
+          <div class="chat-header__main-grouping chat-header__avatar-grouping">
+  <form
+    class="chat-header__avatar  js-chat-header-group-avatar-upload-form"
+    action=""
+    enctype="multipart/form-data"
+    method="POST">
+    <input type="hidden" class="js-chat-header-group-avatar-upload-signature" name="signature" value="">
+    <input type="hidden" class="js-chat-header-group-avatar-upload-params" name="params" value="">
+    <input
+      id="chat-header-group-avatar-upload-input"
+      class="chat-header__group-avatar-upload-input js-chat-header-group-avatar-upload-input"
+      name="file"
+      type="file"
+      accept="image/*"
+      disabled />
+    <label
+      class="chat-header__group-avatar-upload-label js-chat-header-group-avatar-upload-label"
+      for="chat-header-group-avatar-upload-input"
+      >
+      <img class="js-chat-header-avatar-image"  height='48' width='48' src='https://avatars-02.gitter.im/group/iv/3/57542c45c43b8c601977197e?s=48' srcset='https://avatars-02.gitter.im/group/iv/3/57542c45c43b8c601977197e?s=96 2x' >
+      <div class="chat-header__group-avatar-upload-progress hidden js-chat-header-group-avatar-upload-progress"></div>
+    </label>
+  </form>
+</div>
+
+<div class="chat-header__main-grouping chat-header__info-grouping">
+  <div class="chat-header__heading-sub-group">
+    <h1 class="js-chat-name chat-header__heading">
+      <a href="/symphonycms/symphony-2" class="chat-header__title">symphonycms/symphony-2</a>
+    </h1>
+  </div>
+  <div class="chat-header__topic-sub-group js-room-topic-edit-activator" tabindex="0">
+    <div class="chat-header__topic-wrapper js-room-topic-wrapper  "><p class="js-room-topic chat-header__topic  ">This is the official Symphony 2 repository.</p></div>
+  </div>
+</div>
+
+
+<div class="chat-header__main-grouping chat-header__action-grouping">
+    <a href="/orgs/symphonycms/rooms" class="chat-header__org-page org-page-link js-chat-header-org-page-action" title="More symphonycms rooms">
+      <i class="chat-header__action-icon icon-globe"></i>
+    </a>
+
+</div>
+
+        </div>
+      </div>
+      <div class="trpContentPanel archive" id="content-wrapper">
+  <div class="trpChatPanel">
+    <div class="trpChatContainer  primary-scroll  chat-container" id="content-frame">
+
+      <div id="chat-container">
+
+          <div class="chat-item model-id-564d77e2078392d727fe1c24 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5515657515522ed4b3ddeb4e avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Jonathan Mifsud</div>
+      <div class='chat-item__username js-chat-item-from'>@jonmifsud</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564d77e2078392d727fe1c24' title="">Nov 19 2015 07:18</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      <span data-link-type="mention" data-screen-name="Vandenberg" class="mention">@Vandenberg</span> just checked the files I can’t quite work with that… not on windows. all I needed was the webroot (which is there) and a mysql data dump. as regards the checkbox it looks good to me.
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d8e9a167ee3a91d43ea31 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-56488ce816b6c7089cbac7ba avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Vandenberg</div>
+      <div class='chat-item__username js-chat-item-from'>@Vandenberg</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564d8e9a167ee3a91d43ea31' title="">Nov 19 2015 08:55</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      <span data-link-type="mention" data-screen-name="jonmifsud" class="mention">@jonmifsud</span> OK sorry just figured you could use it like that. So I will try to create a mysql data dump and send it to you
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d9089726523e941a64047 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5515657515522ed4b3ddeb4e avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Jonathan Mifsud</div>
+      <div class='chat-item__username js-chat-item-from'>@jonmifsud</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564d9089726523e941a64047' title="">Nov 19 2015 09:04</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      hehe on mac so cannot :)
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d91d6be2383d8272a43fb burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-56488ce816b6c7089cbac7ba avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Vandenberg</div>
+      <div class='chat-item__username js-chat-item-from'>@Vandenberg</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564d91d6be2383d8272a43fb' title="">Nov 19 2015 09:09</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      aah on mac, that explains. Thanks for taking the time to look at it though
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d91e65131832b69bf13eb burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      gonna try to make a mysql data dump
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d9398167ee3a91d43eb82 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-56488ce816b6c7089cbac7ba avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Vandenberg</div>
+      <div class='chat-item__username js-chat-item-from'>@Vandenberg</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564d9398167ee3a91d43eb82' title="">Nov 19 2015 09:17</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      I&#39;ve sent you the sql file
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d93ba167ee3a91d43eb91 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5515657515522ed4b3ddeb4e avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Jonathan Mifsud</div>
+      <div class='chat-item__username js-chat-item-from'>@jonmifsud</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564d93ba167ee3a91d43eb91' title="">Nov 19 2015 09:17</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      I’ll check it out in a bit
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d945a726523e941a64099 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-56488ce816b6c7089cbac7ba avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Vandenberg</div>
+      <div class='chat-item__username js-chat-item-from'>@Vandenberg</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564d945a726523e941a64099' title="">Nov 19 2015 09:20</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      just curious, what&#39;s your timezone jon?
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d946275346dea41335692 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5515657515522ed4b3ddeb4e avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Jonathan Mifsud</div>
+      <div class='chat-item__username js-chat-item-from'>@jonmifsud</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564d946275346dea41335692' title="">Nov 19 2015 09:20</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      CET :)
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d946e078392d727fe1df5 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      based in Malta
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d94825131832b69bf1420 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-56488ce816b6c7089cbac7ba avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Vandenberg</div>
+      <div class='chat-item__username js-chat-item-from'>@Vandenberg</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564d94825131832b69bf1420' title="">Nov 19 2015 09:21</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      ahh same here, based in NL
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d96dcbe2383d8272a447e burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5515657515522ed4b3ddeb4e avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Jonathan Mifsud</div>
+      <div class='chat-item__username js-chat-item-from'>@jonmifsud</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564d96dcbe2383d8272a447e' title="">Nov 19 2015 09:31</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      noticed from your symphony configuration :)
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d96e7078392d727fe1e38 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      seems there a few keen users in NL
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d973fbe2383d8272a4488 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-56488ce816b6c7089cbac7ba avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Vandenberg</div>
+      <div class='chat-item__username js-chat-item-from'>@Vandenberg</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564d973fbe2383d8272a4488' title="">Nov 19 2015 09:32</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      Yeah dutch people represent in the developer community
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d97455131832b69bf145c burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      we are all nerds
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d9851726523e941a640fd burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      I thought I was so close with the json problem but it seems like there&#39;s one more hoard to take to integrate it with symphony
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d9ba5078392d727fe1ea6 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-56488ce816b6c7089cbac7ba avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Vandenberg</div>
+      <div class='chat-item__username js-chat-item-from'>@Vandenberg</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564d9ba5078392d727fe1ea6' title="">Nov 19 2015 09:51</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      are you able to look at it now?
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d9bb25131832b69bf14af burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5515657515522ed4b3ddeb4e avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Jonathan Mifsud</div>
+      <div class='chat-item__username js-chat-item-from'>@jonmifsud</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564d9bb25131832b69bf14af' title="">Nov 19 2015 09:51</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      setting it up but I think it should be ok
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d9bd8726523e941a64151 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-56488ce816b6c7089cbac7ba avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Vandenberg</div>
+      <div class='chat-item__username js-chat-item-from'>@Vandenberg</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564d9bd8726523e941a64151' title="">Nov 19 2015 09:52</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      so you get the gist of what I am trying to do.
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d9be3726523e941a64152 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      Someone must have done this before I think
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d9bfd96a31729694ff5f1 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5515657515522ed4b3ddeb4e avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Jonathan Mifsud</div>
+      <div class='chat-item__username js-chat-item-from'>@jonmifsud</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564d9bfd96a31729694ff5f1' title="">Nov 19 2015 09:53</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      I think I understand what you’re trying to do even if I haven’t really used angular
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d9c865131832b69bf14bf burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-56488ce816b6c7089cbac7ba avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Vandenberg</div>
+      <div class='chat-item__username js-chat-item-from'>@Vandenberg</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564d9c865131832b69bf14bf' title="">Nov 19 2015 09:55</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      in this tutorial:
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d9c87726523e941a64162 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      <a href="https://docs.angularjs.org/tutorial/step_00" rel="nofollow" target="_blank" class="link">https://docs.angularjs.org/tutorial/step_00</a>
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d9ca05131832b69bf14c6 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      they set up the same thing but the json is seperated into files
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d9cb175346dea4133576b burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      I&#39;m trying to emulate that with symphony output
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d9cbe7ae518a71d2fcaa8 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5515657515522ed4b3ddeb4e avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Jonathan Mifsud</div>
+      <div class='chat-item__username js-chat-item-from'>@jonmifsud</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564d9cbe7ae518a71d2fcaa8' title="">Nov 19 2015 09:56</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      I think you made some changes since yesterday right?
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d9cd3167ee3a91d43ee3a burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      have a couple of events missing (I think I can work anyway just want to confirm that they shouldn’t impact anything)
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d9d0275346dea41335770 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-56488ce816b6c7089cbac7ba avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Vandenberg</div>
+      <div class='chat-item__username js-chat-item-from'>@Vandenberg</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564d9d0275346dea41335770' title="">Nov 19 2015 09:57</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      I have added an event to try and set the &#39;done&#39; checkbox to true when the event is called from the front end
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d9d3f726523e941a64181 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      it&#39;s a pain because the partials are static htmls (with angular) that are not generated with xslt
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d9d57078392d727fe1ed8 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      want to see if I can make those dynamic as well
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d9d865131832b69bf14d9 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      so the problem again is that I don&#39;t understand how to use these dynamically generated &#39;pages&#39; as references for angular
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d9e537ae518a71d2fcb06 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5515657515522ed4b3ddeb4e avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Jonathan Mifsud</div>
+      <div class='chat-item__username js-chat-item-from'>@jonmifsud</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564d9e537ae518a71d2fcb06' title="">Nov 19 2015 10:02</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      ok so can you tell me exactly where/how to generate the error you have and where you think I should be editing?
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d9e597ae518a71d2fcb08 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      the site is set up
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d9f067ae518a71d2fcb39 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-56488ce816b6c7089cbac7ba avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Vandenberg</div>
+      <div class='chat-item__username js-chat-item-from'>@Vandenberg</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564d9f067ae518a71d2fcb39' title="">Nov 19 2015 10:05</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      so you have the angular server running?
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d9f1f7ae518a71d2fcb3f burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      when you look at \root\angular-todo\app
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d9f39167ee3a91d43eeda burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      in \js there is an angular app set up in different files
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d9f53167ee3a91d43eee1 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      in services.js it makes a http request for the json data
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d9f74167ee3a91d43eeeb burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      I have made a page/utility that created json output from the entries in section Todo 
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d9f9b7ae518a71d2fcb64 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      on the home page the app gets initiated and read s the json from the page localhost:8080/json/todos
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d9fb17ae518a71d2fcb70 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      ( &#39;todos&#39; is added by an angular variable)
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564d9fe5167ee3a91d43ef15 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      when an item is clicked in the front-end, the angular app tries to load the json situated at localhost:8080/json/{varName}
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da0037ae518a71d2fcb85 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5515657515522ed4b3ddeb4e avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Jonathan Mifsud</div>
+      <div class='chat-item__username js-chat-item-from'>@jonmifsud</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564da0037ae518a71d2fcb85' title="">Nov 19 2015 10:10</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      oh
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da005167ee3a91d43ef25 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-56488ce816b6c7089cbac7ba avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Vandenberg</div>
+      <div class='chat-item__username js-chat-item-from'>@Vandenberg</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564da005167ee3a91d43ef25' title="">Nov 19 2015 10:10</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      I have set up symphony to output a json page with a single object 
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da00f167ee3a91d43ef29 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      on that symphony page
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da0297ae518a71d2fcb91 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      now..... it seems to have a problem with loading that page as the right data format 
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da031167ee3a91d43ef32 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5515657515522ed4b3ddeb4e avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Jonathan Mifsud</div>
+      <div class='chat-item__username js-chat-item-from'>@jonmifsud</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564da031167ee3a91d43ef32' title="">Nov 19 2015 10:10</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      can you do a couple of things before I continue testing :) 
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da037167ee3a91d43ef34 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-56488ce816b6c7089cbac7ba avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Vandenberg</div>
+      <div class='chat-item__username js-chat-item-from'>@Vandenberg</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564da037167ee3a91d43ef34' title="">Nov 19 2015 10:11</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      as said &#39;expecting object but got an array :(&#39;
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da050167ee3a91d43ef39 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      o pleas tell me
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da05b7ae518a71d2fcb9a burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5515657515522ed4b3ddeb4e avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Jonathan Mifsud</div>
+      <div class='chat-item__username js-chat-item-from'>@jonmifsud</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564da05b7ae518a71d2fcb9a' title="">Nov 19 2015 10:11</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      oh wait
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da0617ae518a71d2fcb9d burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      I just checked the content
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da064167ee3a91d43ef44 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      <a href="http://siembase.dev/json/todos/" rel="nofollow" target="_blank" class="link">http://siembase.dev/json/todos/</a>
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da069167ee3a91d43ef46 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      sorry that’s my local :)
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da06f167ee3a91d43ef47 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-56488ce816b6c7089cbac7ba avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Vandenberg</div>
+      <div class='chat-item__username js-chat-item-from'>@Vandenberg</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564da06f167ee3a91d43ef47' title="">Nov 19 2015 10:11</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      siembase :D
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da073167ee3a91d43ef49 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5515657515522ed4b3ddeb4e avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Jonathan Mifsud</div>
+      <div class='chat-item__username js-chat-item-from'>@jonmifsud</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564da073167ee3a91d43ef49' title="">Nov 19 2015 10:12</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      that is an array not a json object I’m afraid
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da07d7ae518a71d2fcbaa burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      starts with []
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da0857ae518a71d2fcbb1 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      objects start with {
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da0897ae518a71d2fcbb2 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-56488ce816b6c7089cbac7ba avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Vandenberg</div>
+      <div class='chat-item__username js-chat-item-from'>@Vandenberg</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564da0897ae518a71d2fcbb2' title="">Nov 19 2015 10:12</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      :O
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da094167ee3a91d43ef54 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      ooo
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da0a8167ee3a91d43ef5e burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5515657515522ed4b3ddeb4e avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Jonathan Mifsud</div>
+      <div class='chat-item__username js-chat-item-from'>@jonmifsud</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564da0a8167ee3a91d43ef5e' title="">Nov 19 2015 10:12</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      can you see if that’s the problem?
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da0ad167ee3a91d43ef60 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-56488ce816b6c7089cbac7ba avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Vandenberg</div>
+      <div class='chat-item__username js-chat-item-from'>@Vandenberg</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564da0ad167ee3a91d43ef60' title="">Nov 19 2015 10:13</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      yeah lemme check
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da5427ae518a71d2fcd14 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5515657515522ed4b3ddeb4e avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Jonathan Mifsud</div>
+      <div class='chat-item__username js-chat-item-from'>@jonmifsud</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564da5427ae518a71d2fcd14' title="">Nov 19 2015 10:32</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      any luck?
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da57e5131832b69bf158f burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-56488ce816b6c7089cbac7ba avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Vandenberg</div>
+      <div class='chat-item__username js-chat-item-from'>@Vandenberg</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564da57e5131832b69bf158f' title="">Nov 19 2015 10:33</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      alright I inadvertently got the templates set up that on /json/todos it displays with []
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da5935131832b69bf1591 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      and on json/sunt outputs without []
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da59c5131832b69bf1592 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      now I get unexpected token ,
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da5d175346dea4133584c burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      &#39;expects an object but got an array\
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da5d8726523e941a64255 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      wait I&#39;m mixing it up
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da5e575346dea4133584e burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      the main list should be an.. array
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da5ec75346dea4133584f burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      the detal view should be an object
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da6657ae518a71d2fcd71 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5515657515522ed4b3ddeb4e avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Jonathan Mifsud</div>
+      <div class='chat-item__username js-chat-item-from'>@jonmifsud</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564da6657ae518a71d2fcd71' title="">Nov 19 2015 10:37</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      those errors are not related to your symphony setup though.. it’s how you’re formatting the json
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da667726523e941a6426b burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-56488ce816b6c7089cbac7ba avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Vandenberg</div>
+      <div class='chat-item__username js-chat-item-from'>@Vandenberg</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564da667726523e941a6426b' title="">Nov 19 2015 10:37</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      no it should be right
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da67b75346dea4133585b burstContinued read deleted"><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      <i>This message was deleted</i>
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da6a796a31729694ff6de burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      <p>`&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</p><p>&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;&gt;
+
+</p><p>&lt;xsl:template match=&quot;todos/entry&quot;&gt;<br>    {<br>        &quot;position&quot;: &lt;xsl:value-of select=&quot;position()&quot;/&gt;,<br>        &quot;order&quot;: &lt;xsl:value-of select=&quot;order&quot;/&gt;,<br>        &quot;total&quot;: &quot;&lt;xsl:value-of select=&quot;../pagination/@total-entries&quot; /&gt;&quot;,<br>        &quot;id&quot;: &quot;&lt;xsl:value-of select=&quot;id_handle/@handle&quot; /&gt;&quot;,<br>        &quot;sym_id&quot;: &quot;&lt;xsl:value-of select=&quot;@id&quot; /&gt;&quot;,<br>        &quot;cat&quot;: &quot;&lt;xsl:value-of select=&quot;cat/item/@handle&quot; /&gt;&quot;,<br>        &quot;imageUrl&quot;: &quot;&lt;xsl:value-of select=&quot;//data/params/workspace&quot;/&gt;/images/phones/&lt;xsl:value-of select=&quot;imageUrl&quot; /&gt;.jpg&quot;,<br>        &quot;name&quot;: &quot;&lt;xsl:value-of select=&quot;name&quot; /&gt;&quot;,<br>        &quot;done&quot;: &quot;&lt;xsl:value-of select=&quot;done&quot; /&gt;&quot;,<br>        &quot;priority&quot;: &quot;&lt;xsl:value-of select=&quot;priority/item/@handle&quot; /&gt;&quot;,<br>        &quot;date-created&quot; : &quot;&lt;xsl:call-template name=&quot;format-date&quot;&gt;&lt;xsl:with-param name=&quot;date&quot; select=&quot;system-date/created&quot;/&gt;&lt;xsl:with-param name=&quot;format&quot; select=&quot;&#39;x M Y&#39;&quot;/&gt;&lt;/xsl:call-template&gt;&quot;,<br>        &quot;date-modified&quot; : &quot;&lt;xsl:call-template name=&quot;format-date&quot;&gt;&lt;xsl:with-param name=&quot;date&quot; select=&quot;system-date/modified&quot;/&gt;&lt;xsl:with-param name=&quot;format&quot; select=&quot;&#39;d/n/y t&#39;&quot;/&gt;&lt;/xsl:call-template&gt;&quot;,<br>        &quot;date-due&quot; : &quot;&lt;xsl:call-template name=&quot;format-date&quot;&gt;&lt;xsl:with-param name=&quot;date&quot; select=&quot;date-due&quot;/&gt;&lt;xsl:with-param name=&quot;format&quot; select=&quot;&#39;d/n/y t&#39;&quot;/&gt;&lt;/xsl:call-template&gt;&quot;,<br>        &quot;snippet&quot;: &quot;&lt;xsl:value-of select=&quot;snippet&quot; mode=&quot;unformatted&quot;/&gt;&quot;<br>    }&lt;xsl:if test=&quot;position() != last()&quot;&gt;,&lt;/xsl:if&gt;<br>&lt;/xsl:template&gt;</p><p>&lt;/xsl:stylesheet&gt;`</p>
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da6ad5131832b69bf15af burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      sorry cant pase as code..
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da6dbbe2383d8272a4609 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      I&#39;m gonna try to output my json like.. inline
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da7335131832b69bf15b4 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      I feed the json like<br>{&quot;position&quot;: 1,&quot;order&quot;: 3,&quot;total&quot;: &quot;1&quot;,&quot;id&quot;: &quot;sunt&quot;,&quot;sym_id&quot;: &quot;21&quot;,&quot;cat&quot;: &quot;back-end&quot;,&quot;imageUrl&quot;: &quot;<a href="http://localhost:8080/workspace/images/phones/Nondell-streak-7.0.jpg&quot;,&quot;name" rel="nofollow" target="_blank" class="link">http://localhost:8080/workspace/images/phones/Nondell-streak-7.0.jpg&quot;,&quot;name</a>&quot;: &quot;Sunt&quot;,&quot;done&quot;: &quot;No&quot;,&quot;priority&quot;: &quot;medium&quot;,&quot;date-created&quot; : &quot;18 November 2015&quot;,&quot;date-modified&quot; : &quot;19/11/15 10:41am&quot;,&quot;date-due&quot; : &quot;18/11/15 2:13pm&quot;,&quot;snippet&quot;: &quot;Quam nihil molestiae&quot;}
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da7395131832b69bf15b5 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      thats an object right?
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da73fbe2383d8272a4611 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      I get unexpected token
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da764726523e941a64287 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5515657515522ed4b3ddeb4e avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Jonathan Mifsud</div>
+      <div class='chat-item__username js-chat-item-from'>@jonmifsud</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564da764726523e941a64287' title="">Nov 19 2015 10:41</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      yes looks like it to me
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da786078392d727fe1fe3 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      I don’t know they’re angular issues someone with knowledge of angular might help you more than I can
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da7935131832b69bf15bc burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-56488ce816b6c7089cbac7ba avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Vandenberg</div>
+      <div class='chat-item__username js-chat-item-from'>@Vandenberg</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564da7935131832b69bf15bc' title="">Nov 19 2015 10:42</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      yes
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da79ebe2383d8272a4618 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      I&#39;ve got some russian friends in the other box :P
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564da7a396a31729694ff6ea burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      lemme ask
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564db2d5726523e941a64397 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-56488ce816b6c7089cbac7ba avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/776451?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Vandenberg</div>
+      <div class='chat-item__username js-chat-item-from'>@Vandenberg</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564db2d5726523e941a64397' title="">Nov 19 2015 11:30</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      they say: <span data-link-type="mention" data-screen-name="mrded" class="mention">@mrded</span><br><span data-link-type="mention" data-screen-name="Vandenberg" class="mention">@Vandenberg</span> it may be an authentication token.<br>It depend on how you do authentication on your site. Do you need to be logged in to get a respond?
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564db3ca167ee3a91d43f47a burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5515657515522ed4b3ddeb4e avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/859775?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Jonathan Mifsud</div>
+      <div class='chat-item__username js-chat-item-from'>@jonmifsud</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564db3ca167ee3a91d43f47a' title="">Nov 19 2015 11:34</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      it shouldn’t require authentication
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564db3cf167ee3a91d43f47d burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      or I don’t think so
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-564e38bcfe870cb723e3fa81 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-551b71f815522ed4b3de2638 avatar-s offline  ">
+  <img src="https://avatars2.githubusercontent.com/u/857982?v=3&amp;s=30" srcset="https://avatars2.githubusercontent.com/u/857982?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Rudy Montoya Rodriguez</div>
+      <div class='chat-item__username js-chat-item-from'>@moretaste</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=564e38bcfe870cb723e3fa81' title="">Nov 19 2015 21:01</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      those dutch geeks ...  grin
+    </div>
+  </div>
+</div>
+</div>
+      </div>
+
+      <div id='initial' style="height:0;width:0;overflow:hidden"><a name="initial"/>_</a></div>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+    <script type="text/javascript">window.gitterClientEnv = {"lang":"en","domain":"gitter.im","baseServer":"gitter.im","basePath":"https://gitter.im","apiBasePath":"https://gitter.im/api","homeUrl":"/","badgeBaseUrl":"https://badges.gitter.im","mixpanelToken":"d43f5f0ef2f5e96d90325f539fc61337","googleTrackingId":"UA-45918290-1","googleTrackingDomain":"gitter.im","goSquaredTrackingId":"GSN-457403-A","env":"prod","cdns":["cdn01.gitter.im","cdn02.gitter.im","cdn03.gitter.im"],"version":"b23011","assetTag":"b230113","logging":false,"ravenUrl":"https://0f50f03f994740328ab6a67c82395948@app.getsentry.com/19257","websockets":{"fayeUrl":"https://ws.gitter.im/bayeux","options":{"timeout":120,"retry":2}},"avatarsUrl":"https://avatars.gitter.im","avatarCdns":["https://avatars-01.gitter.im","https://avatars-02.gitter.im","https://avatars-03.gitter.im","https://avatars-04.gitter.im","https://avatars-05.gitter.im"],"embed":{"basepath":"https://embed.gitter.im","cacheBuster":"1"},"billingUrl":"http://billing.gitter.im","maxFreeOrgRoomMembers":25,"vapidAppServerKey":"BMhrlZd_I5OFJSJQTbg2mZ5PTHarzenwsKfsRd8C0-HRBygpDj9O3M4VTJIQfB9VPDjAoO_w2eg7Sj_cMXzuLwI"};window.troupeContext = {"accessToken":"$dqKzn76lo6YcQ2jqVcofi6OPIk5WsgqCTlSvdLv/41k=","isNativeDesktopApp":false,"locale":{"%d unread message":{"one":"%d unread message","other":"%d unread messages"},"Unread messages in %%s, %%s and one other":{"one":"Unread messages in %%s, %%s and one other","other":"Unread messages in %%s, %%s and %d others"},"Unread messages in %s":"Unread messages in %s","Unread messages in %s and %s":"Unread messages in %s and %s","Unread messages from %s":"Unread messages from %s","Unread messages from %s and %s":"Unread messages from %s and %s","Unread messages from %%s, %%s and one other":{"one":"Unread messages from %%s, %%s and one other","other":"Unread messages from %%s, %%s and %d others"}},"roomMember":false,"user":null,"troupe":{"id":"5514b98415522ed4b3dde61d","name":"symphonycms/symphony-2","topic":"This is the official Symphony 2 repository.","avatarUrl":"https://avatars-02.gitter.im/group/iv/3/57542c45c43b8c601977197e","uri":"symphonycms/symphony-2","userCount":122,"url":"/symphonycms/symphony-2","githubType":"REPO","associatedRepo":"symphonycms/symphony-2","security":"PUBLIC","groupId":"57542c45c43b8c601977197e","group":{"id":"57542c45c43b8c601977197e","name":"symphonycms","uri":"symphonycms","homeUri":"symphonycms/home","backedBy":{"type":"GH_ORG","linkPath":"symphonycms"},"avatarUrl":"https://avatars-02.gitter.im/group/iv/3/57542c45c43b8c601977197e"},"backend":{"type":"GH_REPO","linkPath":"symphonycms/symphony-2"},"public":true,"v":35},"roomHasWelcomeMessage":false,"archive":{"archiveDate":"2015-11-19T00:00:00.000Z","nextDate":"2015-11-20T00:00:00.000Z","previousDate":"2015-11-18T00:00:00.000Z"}};</script>
+
+    <script type='text/javascript'>window.webpackPublicPath = '//cdn02.gitter.im/_s/b230113/js/';</script><script type='text/javascript' src='//cdn02.gitter.im/_s/b230113/js/vendor.js'></script><script type='text/javascript' src='//cdn02.gitter.im/_s/b230113/js/router-archive-chat.js'></script>
+</body>
+</html>

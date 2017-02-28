@@ -1,1 +1,1 @@
-Chat archive of https://gitter.im/symphonycms/symphony-2 dating from `2015-04-01` to `2016-07-11`.
+Chat archive of https://gitter.im/symphonycms/symphony-2 dating from `2015-04-01` to `2017-02-28`.
