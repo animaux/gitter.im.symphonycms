@@ -1,0 +1,815 @@
+<!doctype html>
+<html class="no-js " lang="en">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=IE9" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"/>
+  <meta charset="utf-8">
+
+      <link rel="preload" href="//cdn03.gitter.im/_s/82f7670/fonts/sourcesans/SourceSansPro-Regular.otf.woff" as="font" type="font/woff">
+    <link rel="preload" href="//cdn01.gitter.im/_s/82f7670/fonts/sourcesans/SourceSansPro-It.otf.woff" as="font" type="font/woff">
+    <link rel="preload" href="//cdn01.gitter.im/_s/82f7670/fonts/sourcesans/SourceSansPro-Bold.otf.woff" as="font" type="font/woff">
+    <link rel="preload" href="//cdn02.gitter.im/_s/82f7670/fonts/sourcesans/SourceSansPro-Semibold.otf.woff" as="font" type="font/woff">
+    <link rel="preload" href="//cdn03.gitter.im/_s/82f7670/fonts/sourcesans/SourceSansPro-BoldIt.otf.woff" as="font" type="font/woff">
+    <link rel="preload" href="//cdn02.gitter.im/_s/82f7670/fonts/sourcesans/SourceSansPro-Light.otf.woff" as="font" type="font/woff">
+    <link rel="preload" href="//cdn03.gitter.im/_s/82f7670/fonts/sourcesans/SourceSansPro-ExtraLight.otf.woff" as="font" type="font/woff">
+
+  <style>
+    @font-face {
+      font-family: 'SourceSansLocal';
+      font-style: normal;
+      font-weight: bold;
+      src: local("SourceSansPro-Bold");
+    }
+    @font-face {
+      font-family: 'SourceSansLocal';
+      font-style: italic;
+      font-weight: bold;
+      src: local("SourceSansPro-BoldIt");
+    }
+    @font-face {
+      font-family: 'SourceSansLocal';
+      font-style: normal;
+      font-weight: 200;
+      src: local("SourceSansPro-ExtraLight");
+    }
+    @font-face {
+      font-family: 'SourceSansLocal';
+      font-style: italic;
+      font-weight: normal;
+      src: local("SourceSansPro-It");
+    }
+    @font-face {
+      font-family: 'SourceSansLocal';
+      font-style: normal;
+      font-weight: 300;
+      src: local("SourceSansPro-Light");
+    }
+    @font-face {
+      font-family: 'SourceSansLocal';
+      font-style: normal;
+      font-weight: normal;
+      src: local("SourceSansPro-Regular");
+    }
+    @font-face {
+      font-family: 'SourceSansLocal';
+      font-style: normal;
+      font-weight: 600;
+      src: local("SourceSansPro-Semibold");
+    }
+    @font-face {
+      font-family: "source-sans-pro";
+      src: url("//cdn03.gitter.im/_s/82f7670/fonts/sourcesans/SourceSansPro-Regular.otf.woff") format('woff');
+      font-weight: normal;
+      font-style: normal
+    }
+    @font-face {
+      font-family: "source-sans-pro";
+      src: url("//cdn01.gitter.im/_s/82f7670/fonts/sourcesans/SourceSansPro-It.otf.woff") format('woff');
+      font-weight: normal;
+      font-style: italic
+    }
+    @font-face {
+      font-family: "source-sans-pro";
+      src: url("//cdn01.gitter.im/_s/82f7670/fonts/sourcesans/SourceSansPro-Bold.otf.woff") format('woff');
+      font-weight: bold;
+      font-style: normal
+    }
+    @font-face {
+      font-family: "source-sans-pro";
+      src: url("//cdn02.gitter.im/_s/82f7670/fonts/sourcesans/SourceSansPro-Semibold.otf.woff") format('woff');
+      font-weight: 600;
+      font-style: normal
+    }
+    @font-face {
+      font-family: "source-sans-pro";
+      src: url("//cdn03.gitter.im/_s/82f7670/fonts/sourcesans/SourceSansPro-BoldIt.otf.woff") format('woff');
+      font-weight: bold;
+      font-style: italic
+    }
+    @font-face {
+      font-family: "source-sans-pro";
+      src: url("//cdn02.gitter.im/_s/82f7670/fonts/sourcesans/SourceSansPro-Light.otf.woff") format('woff');
+      font-weight: 300;
+      font-style: normal
+    }
+    @font-face {
+      font-family: "source-sans-pro";
+      src: url("//cdn03.gitter.im/_s/82f7670/fonts/sourcesans/SourceSansPro-ExtraLight.otf.woff") format('woff');
+      font-weight: 200;
+      font-style: normal
+    }
+  </style>
+
+  <title>symphonycms/symphony-2 - Gitter</title>
+
+  <style>
+
+  @-webkit-keyframes pulsey {
+      0% { opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { opacity: 0.6; }
+  }
+
+  html.loading .trpContentPanel { background: url("//cdn01.gitter.im/_s/82f7670/images/logo-mark-grey-64.png") center no-repeat; height: 90%; -webkit-animation: pulsey 2s ease-out; -webkit-animation-iteration-count: infinite;  }
+  html.loading .trpContentPanel > * { visibility: hidden; }
+  </style>
+  <base target="_parent">
+  <link rel="stylesheet" href='//cdn01.gitter.im/_s/82f7670/sprites/services.css'>
+  <link rel="stylesheet" href='//cdn02.gitter.im/_s/82f7670/styles/router-archive-chat.css'>
+  <link id="favicon" rel="shortcut icon" href="//cdn02.gitter.im/_s/82f7670/images/favicon.ico">
+</head>
+<body class="logged-out">
+  <div class="chat-and-toolbar-wrapper archive">
+    <div class="right-toolbar-region">
+      <div class="right-toolbar" style="overflow: auto">
+        <div class="gtrArchiveToolbarWrapper">
+            <div class="gtrArchiveInfoContainer">
+                <div class="gtrArchiveLogo">
+                  <div class="logo-container"></div>
+                </div>
+                <div class="gtrArchiveInfo">
+                  <p>These are chat archives for <strong>symphonycms/symphony-2</strong></p>
+                </div>
+            </div>
+
+          <div id="archive-navigation" class="gtrArchiveNavigationWrapper"><div class="gtrArchiveNavigationInner">
+  <div class="gtrArchiveDate">
+    <a href="/symphonycms/symphony-2/archives/2018/06/06"><i class="gtrArchiveNext octicon octicon-chevron-right"></i></a>
+    <a href="/symphonycms/symphony-2/archives/2018/06/04"><i class="gtrArchivePrev octicon octicon-chevron-left"></i></a>
+    <div class="gtrArchiveToday">
+      <span class="gtrArchiveDay">5<sup>th</sup></span><br>
+      <span class="gtrArchiveMonth">Jun 2018</span>
+    </div>
+  </div>
+
+  <div class="archive-toggle-navigation-action-holder">
+    <button class="button-jaffa--small js-toggle-archive-navigation">Toggle Heatmap</button>
+  </div>
+  <div id="archive-navigation" class="gtrArchiveCalendar js-archive-navigation-wrapper">
+  </div>
+</div>
+</div>
+            <div class="archive-right-toolbar-button-wrapper">
+              <a href="/login?action=login&amp;button=archive-login" class="archive-right-toolbar-button button-caribbean">Sign in to start talking</a>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="chat-app">
+      <div class="chat-header" id="header-wrapper">
+        <div id="header" class="chat-header-inner">
+          <div class="chat-header__main-grouping chat-header__avatar-grouping">
+  <form
+    class="chat-header__avatar  js-chat-header-group-avatar-upload-form"
+    action=""
+    enctype="multipart/form-data"
+    method="POST">
+    <input type="hidden" class="js-chat-header-group-avatar-upload-signature" name="signature" value="">
+    <input type="hidden" class="js-chat-header-group-avatar-upload-params" name="params" value="">
+    <input
+      id="chat-header-group-avatar-upload-input"
+      class="chat-header__group-avatar-upload-input js-chat-header-group-avatar-upload-input"
+      name="file"
+      type="file"
+      accept="image/*"
+      disabled />
+    <label
+      class="chat-header__group-avatar-upload-label js-chat-header-group-avatar-upload-label"
+      for="chat-header-group-avatar-upload-input"
+      >
+      <img class="js-chat-header-avatar-image"  height='48' width='48' src='https://avatars-02.gitter.im/group/iv/3/57542c45c43b8c601977197e?s=48' srcset='https://avatars-02.gitter.im/group/iv/3/57542c45c43b8c601977197e?s=96 2x' >
+      <div class="chat-header__group-avatar-upload-progress hidden js-chat-header-group-avatar-upload-progress"></div>
+    </label>
+  </form>
+</div>
+
+<div class="chat-header__main-grouping chat-header__info-grouping">
+  <div class="chat-header__heading-sub-group">
+    <h1 class="js-chat-name chat-header__heading">
+      <a href="/symphonycms/symphony-2" class="chat-header__title">symphonycms/symphony-2</a>
+    </h1>
+  </div>
+  <div class="chat-header__topic-sub-group js-room-topic-edit-activator" tabindex="0">
+    <div class="chat-header__topic-wrapper js-room-topic-wrapper  "><p class="js-room-topic chat-header__topic  ">This is the official Symphony 2 repository.</p></div>
+  </div>
+</div>
+
+
+<div class="chat-header__main-grouping chat-header__action-grouping">
+    <a href="/orgs/symphonycms/rooms" class="chat-header__org-page org-page-link js-chat-header-org-page-action" title="More symphonycms rooms">
+      <i class="chat-header__action-icon icon-globe"></i>
+    </a>
+
+</div>
+
+        </div>
+      </div>
+      <div class="trpContentPanel archive" id="content-wrapper">
+  <div class="trpChatPanel">
+    <div class="trpChatContainer  primary-scroll  chat-container" id="content-frame">
+
+      <div id="chat-container">
+
+          <div class="chat-item model-id-5b162356a45f930a6500631c burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-59c20d3ed73408ce4f76868e avatar-s offline  ">
+  <img src="https://avatars2.githubusercontent.com/u/2209893?v=4&amp;s=30" srcset="https://avatars2.githubusercontent.com/u/2209893?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Juraj Kapsz</div>
+      <div class='chat-item__username js-chat-item-from'>@jurajkapsz</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=5b162356a45f930a6500631c' title="">Jun 05 05:44</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      Guys, is there a way to enforce a password strength for Symphony backend? I am thinking this might be handy concerning the new GDPR rules, as a way to support data security.
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-5b163f3c99fa7f4c0646fc8b burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-559feb1f5e0d51bd787ae1bc avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/4136426?v=4&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/4136426?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Wannes Debusschere</div>
+      <div class='chat-item__username js-chat-item-from'>@wdebusschere</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=5b163f3c99fa7f4c0646fc8b' title="">Jun 05 07:43</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      There is an antibruteforce attack extension and i wouldnt recommend to use the login token
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-5b16467e82a4d36ea6cf32f7 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-559feb1f5e0d51bd787ae1bc avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/4136426?v=4&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/4136426?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Wannes Debusschere</div>
+      <div class='chat-item__username js-chat-item-from'>@wdebusschere</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=5b16467e82a4d36ea6cf32f7' title="">Jun 05 08:14</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      <span data-link-type="mention" data-screen-name="michael-e" class="mention">@michael-e</span>  Is there a way to prevent that a memberaccount is being used twice at the same time?
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-5b1648d435e25f39974d7232 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-59c20d3ed73408ce4f76868e avatar-s offline  ">
+  <img src="https://avatars2.githubusercontent.com/u/2209893?v=4&amp;s=30" srcset="https://avatars2.githubusercontent.com/u/2209893?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Juraj Kapsz</div>
+      <div class='chat-item__username js-chat-item-from'>@jurajkapsz</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=5b1648d435e25f39974d7232' title="">Jun 05 08:24</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      <blockquote>
+<p>There is an antibruteforce attack extension and i wouldnt recommend to use the login token</p></blockquote>
+<p><span data-link-type="mention" data-screen-name="wdebusschere" class="mention">@wdebusschere</span> yes, I use these two approaches, but still. I think this - controling password strength - is a security feature on its own. Actually, now I tried to create a user with just one character password and it worked. Well, with this kind of loosenes you can not say you did everything for the security. Under contrary, isn&#39;t this kind of a system vulnerability?</p>
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-5b16497b16f649612409f1cd burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-559feb1f5e0d51bd787ae1bc avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/4136426?v=4&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/4136426?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Wannes Debusschere</div>
+      <div class='chat-item__username js-chat-item-from'>@wdebusschere</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=5b16497b16f649612409f1cd' title="">Jun 05 08:27</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      <span data-link-type="mention" data-screen-name="jurajkapsz" class="mention">@jurajkapsz</span> Usually its an administrator that creates the authors, he should be aware of this. For the members (extension) you can set the password length
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-5b16498aa45f930a6500e83f burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      We also use a custom admin path
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-5b164b1452e35117cd0b4e82 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-59c20d3ed73408ce4f76868e avatar-s offline  ">
+  <img src="https://avatars2.githubusercontent.com/u/2209893?v=4&amp;s=30" srcset="https://avatars2.githubusercontent.com/u/2209893?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Juraj Kapsz</div>
+      <div class='chat-item__username js-chat-item-from'>@jurajkapsz</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=5b164b1452e35117cd0b4e82' title="">Jun 05 08:34</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      <blockquote>
+<p>Good luck! We have plenty of ML site with 2.7.6 clean installs or updated with latest version of all language extensions.. working perfect</p></blockquote>
+<p><span data-link-type="mention" data-screen-name="wdebusschere" class="mention">@wdebusschere</span> Thanks! OK, I&#39;ve tried ML on a clean Symphony 2.6.x install too and also I don&#39;t get any ML data returned in datasources. This must be some kind of bummer on my side. Probably I will walk for a week with a bucket on my head if I find out. I&#39;ll go all over again with everything, what to do. Will let you know. Thanks.</p>
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-5b164b68f9f2e56cf2406b3b burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-559feb1f5e0d51bd787ae1bc avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/4136426?v=4&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/4136426?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Wannes Debusschere</div>
+      <div class='chat-item__username js-chat-item-from'>@wdebusschere</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=5b164b68f9f2e56cf2406b3b' title="">Jun 05 08:35</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      <span data-link-type="mention" data-screen-name="jurajkapsz" class="mention">@jurajkapsz</span> if you want send me the zip of the clean install with the sql and i test it
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-5b164dd6160c567d160470d7 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-59c20d3ed73408ce4f76868e avatar-s offline  ">
+  <img src="https://avatars2.githubusercontent.com/u/2209893?v=4&amp;s=30" srcset="https://avatars2.githubusercontent.com/u/2209893?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Juraj Kapsz</div>
+      <div class='chat-item__username js-chat-item-from'>@jurajkapsz</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=5b164dd6160c567d160470d7' title="">Jun 05 08:46</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      <p><span data-link-type="mention" data-screen-name="wdebusschere" class="mention">@wdebusschere</span> </p><blockquote>
+<p>Usually its an administrator that creates the authors, he should be aware of this.</p></blockquote>
+<p>Yes, but authors can change their passwords later on... I asume users in general do.</p><blockquote>
+<p>For the members (extension) you can set the password length</p></blockquote>
+<p>Yes, I know, but I use basic backends in general.</p><blockquote>
+<p>We also use a custom admin path</p></blockquote>
+<p>Yes, that&#39;s a good practice.</p><p>All in all, I will create a feature request about this onto github just to have it logged for consideration.</p>
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-5b164dedf9f2e56cf24074e1 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-559feb1f5e0d51bd787ae1bc avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/4136426?v=4&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/4136426?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Wannes Debusschere</div>
+      <div class='chat-item__username js-chat-item-from'>@wdebusschere</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=5b164dedf9f2e56cf24074e1' title="">Jun 05 08:46</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      ok
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-5b164f08352b9e1a4b5d5ee4 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-59c20d3ed73408ce4f76868e avatar-s offline  ">
+  <img src="https://avatars2.githubusercontent.com/u/2209893?v=4&amp;s=30" srcset="https://avatars2.githubusercontent.com/u/2209893?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Juraj Kapsz</div>
+      <div class='chat-item__username js-chat-item-from'>@jurajkapsz</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=5b164f08352b9e1a4b5d5ee4' title="">Jun 05 08:51</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      <blockquote>
+<p>if you want send me the zip of the clean install with the sql and i test it</p></blockquote>
+<p><span data-link-type="mention" data-screen-name="wdebusschere" class="mention">@wdebusschere</span> thanks a lot! well, before that I make some more attempts just not to waste your time with some silliness. I am aware this has to work. Thanks again.</p>
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-5b164f51a45f930a6500fdae burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5514ba2015522ed4b3dde62c avatar-s offline  ">
+  <img src="https://avatars2.githubusercontent.com/u/40072?v=4&amp;s=30" srcset="https://avatars2.githubusercontent.com/u/40072?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>michael-e</div>
+      <div class='chat-item__username js-chat-item-from'>@michael-e</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=5b164f51a45f930a6500fdae' title="">Jun 05 08:52</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      <span data-link-type="mention" data-screen-name="wdebusschere" class="mention">@wdebusschere</span> Re: Member  login — AFAIK, a Member can always log in with several devices or browsers. You would have to get your hands dirty if you need to prevent this. (You would have to find existing sessions and destroy them. Which isn&#39;t too complicated, because you know the Member&#39;s username upon login.)
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-5b16519016f64961240a11d7 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-559feb1f5e0d51bd787ae1bc avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/4136426?v=4&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/4136426?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Wannes Debusschere</div>
+      <div class='chat-item__username js-chat-item-from'>@wdebusschere</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=5b16519016f64961240a11d7' title="">Jun 05 09:02</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      <span data-link-type="mention" data-screen-name="michael-e" class="mention">@michael-e</span>  So upon login check if in sym_sessions if there are entries with the username and delete them?
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-5b167093e26c847ac8bb41b6 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5514ba2015522ed4b3dde62c avatar-s offline  ">
+  <img src="https://avatars2.githubusercontent.com/u/40072?v=4&amp;s=30" srcset="https://avatars2.githubusercontent.com/u/40072?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>michael-e</div>
+      <div class='chat-item__username js-chat-item-from'>@michael-e</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=5b167093e26c847ac8bb41b6' title="">Jun 05 11:14</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      I am not sure how to do it. Simply deleting sessions from the table is rather &quot;brutal&quot;. :-) But I don&#39;t know if the Symphony API allows a different approach.
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-5b1670b916f64961240a8b26 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-559feb1f5e0d51bd787ae1bc avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/4136426?v=4&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/4136426?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Wannes Debusschere</div>
+      <div class='chat-item__username js-chat-item-from'>@wdebusschere</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=5b1670b916f64961240a8b26' title="">Jun 05 11:15</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      I would need the current member to stay logged in and the 2nd not to be able to login
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-5b16713052e35117cd0be8ac burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      until the 1st has logged out
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-5b16716ff9f2e56cf240f9ac burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5514ba2015522ed4b3dde62c avatar-s offline  ">
+  <img src="https://avatars2.githubusercontent.com/u/40072?v=4&amp;s=30" srcset="https://avatars2.githubusercontent.com/u/40072?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>michael-e</div>
+      <div class='chat-item__username js-chat-item-from'>@michael-e</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=5b16716ff9f2e56cf240f9ac' title="">Jun 05 11:18</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      Checking if the Member is already logged in should be possible by &quot;plugging into&quot; the Members extension. But your scenario will cause a lot of headache. People never log out, and then they can not log in from another device. I hope you have the support power to manage this.
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-5b1679f499fa7f4c0647e7e7 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-559feb1f5e0d51bd787ae1bc avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/4136426?v=4&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/4136426?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Wannes Debusschere</div>
+      <div class='chat-item__username js-chat-item-from'>@wdebusschere</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=5b1679f499fa7f4c0647e7e7' title="">Jun 05 11:54</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      Could expire the session after 2hours
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-5b16885de26c847ac8bba60f burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5514ba2015522ed4b3dde62c avatar-s offline  ">
+  <img src="https://avatars2.githubusercontent.com/u/40072?v=4&amp;s=30" srcset="https://avatars2.githubusercontent.com/u/40072?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>michael-e</div>
+      <div class='chat-item__username js-chat-item-from'>@michael-e</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=5b16885de26c847ac8bba60f' title="">Jun 05 12:55</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      Yep, that would be a solution. Still, I wonder how many support requests that would generate. :-)
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-5b1688a899fa7f4c06482755 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-559feb1f5e0d51bd787ae1bc avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/4136426?v=4&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/4136426?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Wannes Debusschere</div>
+      <div class='chat-item__username js-chat-item-from'>@wdebusschere</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=5b1688a899fa7f4c06482755' title="">Jun 05 12:57</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      Members need to pay for an account, so we don&#39;t want them to use the same logins, any alternative solution?
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-5b1689a14eaffb692d82acdf burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5514ba2015522ed4b3dde62c avatar-s offline  ">
+  <img src="https://avatars2.githubusercontent.com/u/40072?v=4&amp;s=30" srcset="https://avatars2.githubusercontent.com/u/40072?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>michael-e</div>
+      <div class='chat-item__username js-chat-item-from'>@michael-e</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=5b1689a14eaffb692d82acdf' title="">Jun 05 13:01</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      Hmmm, unfortunately I have no idea. Even with your solution, multiple people could use the same account, just not at the same time.
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-5b1689d693dc78791cb25aa6 burstStart read "><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5515657515522ed4b3ddeb4e avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/859775?v=4&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/859775?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Jonathan Mifsud</div>
+      <div class='chat-item__username js-chat-item-from'>@jonmifsud</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/symphonycms/symphony-2?at=5b1689d693dc78791cb25aa6' title="">Jun 05 13:02</a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      <span data-link-type="mention" data-screen-name="wdebusschere" class="mention">@wdebusschere</span> that’s usually hard to determine in particular with GDPR you would need to explain what information you collect.
+    </div>
+  </div>
+</div>
+</div>
+          <div class="chat-item model-id-5b1689f416f64961240af289 burstContinued read "><div class='chat-item__container'>
+  <div class="chat-item__actions js-chat-item-actions">
+    <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+    <i class="chat-item__icon icon-ellipsis"></i>
+  </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      I’ve seen companies who try fingerprinting. Eg linking a device depending on browser / desktop size etc to try determine if there are multiple users but its not 100% accurate
+    </div>
+  </div>
+</div>
+</div>
+      </div>
+
+      <div id='initial' style="height:0;width:0;overflow:hidden"><a name="initial"/>_</a></div>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+    <script type="text/javascript">window.gitterClientEnv = {"lang":"en","domain":"gitter.im","baseServer":"gitter.im","basePath":"https://gitter.im","apiBasePath":"https://gitter.im/api","homeUrl":"/","badgeBaseUrl":"https://badges.gitter.im","mixpanelToken":false,"googleTrackingId":"UA-45918290-1","googleTrackingDomain":"gitter.im","env":"prod","cdns":["cdn01.gitter.im","cdn02.gitter.im","cdn03.gitter.im"],"version":"82f767","assetTag":"82f7670","logging":false,"ravenUrl":"https://a1bf037f1d5f46f28b8e3b3e82024654@sentry.gitlab.net/42","websockets":{"fayeUrl":"https://ws.gitter.im/bayeux","options":{"timeout":120,"retry":2}},"avatarsUrl":"https://avatars.gitter.im","avatarCdns":["https://avatars-01.gitter.im","https://avatars-02.gitter.im","https://avatars-03.gitter.im","https://avatars-04.gitter.im","https://avatars-05.gitter.im"],"embed":{"basepath":"https://embed.gitter.im","cacheBuster":"1"},"vapidAppServerKey":"BMhrlZd_I5OFJSJQTbg2mZ5PTHarzenwsKfsRd8C0-HRBygpDj9O3M4VTJIQfB9VPDjAoO_w2eg7Sj_cMXzuLwI","headlineNumbers":{"gitterUsers":"800K+","gitterRooms":"300K+","gitterGroups":"90K+","gitterCountries":"100+"}};window.troupeContext = {"accessToken":"$L8P6oPzMwUW7usB2Lr3ixjAd+v7xcDy94KooMagcerU=","isNativeDesktopApp":false,"locale":{"%d unread message":{"one":"%d unread message","other":"%d unread messages"},"Unread messages in %%s, %%s and one other":{"one":"Unread messages in %%s, %%s and one other","other":"Unread messages in %%s, %%s and %d others"},"Unread messages in %s":"Unread messages in %s","Unread messages in %s and %s":"Unread messages in %s and %s","Unread messages from %s":"Unread messages from %s","Unread messages from %s and %s":"Unread messages from %s and %s","Unread messages from %%s, %%s and one other":{"one":"Unread messages from %%s, %%s and one other","other":"Unread messages from %%s, %%s and %d others"}},"roomMember":false,"user":null,"troupe":{"id":"5514b98415522ed4b3dde61d","name":"symphonycms/symphony-2","topic":"This is the official Symphony 2 repository.","avatarUrl":"https://avatars-02.gitter.im/group/iv/3/57542c45c43b8c601977197e","uri":"symphonycms/symphony-2","userCount":185,"url":"/symphonycms/symphony-2","githubType":"REPO","associatedRepo":"symphonycms/symphony-2","security":"PUBLIC","groupId":"57542c45c43b8c601977197e","group":{"id":"57542c45c43b8c601977197e","name":"symphonycms","uri":"symphonycms","homeUri":"symphonycms/home","backedBy":{"type":"GH_ORG","linkPath":"symphonycms"},"avatarUrl":"https://avatars-02.gitter.im/group/iv/3/57542c45c43b8c601977197e"},"backend":{"type":"GH_REPO","linkPath":"symphonycms/symphony-2"},"public":true,"v":35},"roomHasWelcomeMessage":false,"archive":{"archiveDate":"2018-06-05T00:00:00.000Z","nextDate":"2018-06-06T00:00:00.000Z","previousDate":"2018-06-04T00:00:00.000Z"}};</script>
+
+    <script type='text/javascript'>window.webpackPublicPath = '//cdn02.gitter.im/_s/82f7670/js/';</script><script type='text/javascript' src='//cdn02.gitter.im/_s/82f7670/js/vendor.js'></script><script type='text/javascript' src='//cdn02.gitter.im/_s/82f7670/js/router-archive-chat.js'></script>
+</body>
+</html>
